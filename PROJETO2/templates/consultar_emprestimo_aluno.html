@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% import 'bootstrap/wtf.html' as wtf %}
+{% block styles %}
+    {{ super() }}
+    <link rel="stylesheet" type="text/css"
+          href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.11.1/bootstrap-table.min.css">
+{% endblock %}
+{% block app_content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-11 ">
+                <h1>Seus emprestimos em vigência</h1>
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>Id Empréstimo</th>
+                                <th>Patrimônio</th>
+                                <th>Data Empréstimo</th>
+                                <th>Data Prevista para Entrega</th>
+                                <th>Data Devolução</th>
+                                <th>Quantidade Renovação</th>
+                                <th>Renovar Empréstimo</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+{#                             {% for e in emprestimo %}#}
+                                <tr>
+                                    <td>{{ emprestimo.idEmprestimo }}</td>
+                                    <td>{{ patrimonio }}</td>
+                                    <td>{{ emprestimo.DataEmprestimo}}</td>
+                                    <td>{{ emprestimo.DataPrevisaoEntrega}}</td>
+                                    <td>{{ emprestimo.DataDevolucao}}</td>
+                                    <td>{{ emprestimo.QuantidadeRenovacao}}</td>
+                                    <td><a href="/renovar?id={{ emprestimo.idEmprestimo }}"><i class="fas fa-redo-alt"></i></a></td>
+                                </tr>
+{#                            {% endfor %}#}
+                        </tbody>
+                    </table>
+            </div>
+        </div>
+    </div>
+{% endblock %}

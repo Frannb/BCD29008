@@ -1,0 +1,23 @@
+plugins {
+    id 'java'
+}
+
+group 'engtelecom.bcd'
+version '1.0'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.2'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.2'
+
+    // https://mvnrepository.com/artifact/mysql/mysql-connector-java
+    implementation group: 'mysql', name: 'mysql-connector-java', version: '8.0.26'
+
+}
+
+test {
+    useJUnitPlatform()
+}
